@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "./run_test.sh"
+    "test": "src/run_test.sh"
   },
   "author": "Abdulrahman",
   "license": "MIT"
