@@ -1,0 +1,12 @@
+{
+  "name": "greet-app",
+  "version": "1.0.0",
+  "description": "Simple JS app to greet and test output",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "./run_test.sh"
+  },
+  "author": "Abdulrahman",
+  "license": "MIT"
+}
