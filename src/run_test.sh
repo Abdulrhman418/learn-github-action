@@ -13,3 +13,4 @@ else
     echo "Expected: $EXPECTED"
     echo "Got: $OUTPUT"
     exit 1 
+if
