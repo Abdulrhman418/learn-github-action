@@ -4,7 +4,6 @@
   "description": "Simple JS app to greet and test output",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
     "test": "sh src/run_test.sh"
   },
   "author": "Abdulrahman",
