@@ -1,0 +1,15 @@
+name: Example Workflow
+on: 
+  worworkflow_dispatch:
+
+jobs:
+  show-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Event name: ${{ github.event_name }}"
+          echo "Current job: ${{ github.job }}"
