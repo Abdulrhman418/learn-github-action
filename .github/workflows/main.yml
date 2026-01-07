@@ -1,20 +1,7 @@
 on:
-    workflow_dispatch: 
-        inputs:
-          env:
-            description: "choose env"
-            required: true
-            default: "stagin"
-            type: choice
-            options:
-              - staging
-              - development
-              - production
-          version:
-              description: "choose version"
-              required: false
-              default: "latest"
-              type: string
+  repository_dispatch:
+    types:
+      - incident_report
 
 jobs:
     deploy:
