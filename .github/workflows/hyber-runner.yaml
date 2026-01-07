@@ -11,4 +11,4 @@ jobs:
               uses: docker://alpine:3.14
               with:
                     entrypoint: /bin/sh
-                    args: -c "run ${{github.job}} in docker"
+                    args: -c "echo 'run ${{github.job}} in docker'"
