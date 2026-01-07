@@ -1,0 +1,14 @@
+on:
+    workflow_dispatch:
+    
+jobs:
+    job1-vm-docker:
+        runs-on: ubuntu-latest
+        steps:
+            - name: run inside vm
+              run: echo "run ${{github.job}} in vm"
+            - name: run inside docker 
+              uses: docker://alpine:3.14
+              with:
+                    entrypoint: /bin/sh
+                    args: -c "run ${{github.job}} in docker"

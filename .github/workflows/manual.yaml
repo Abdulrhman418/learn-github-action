@@ -1,0 +1,12 @@
+on:
+  repository_dispatch:
+    types:
+      - incident_report
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - run: |
+              echo "deploying the application to ${{github.event.inputs.env}}"
+              echo "version is ${{github.event.inputs.version}}"
