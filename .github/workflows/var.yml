@@ -1,6 +1,6 @@
 name: Example Workflow
 on: 
-  worworkflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   show-info:
