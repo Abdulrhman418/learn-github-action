@@ -12,3 +12,21 @@ jobs:
               with:
                     entrypoint: /bin/sh
                     args: -c "echo 'run ${{github.job}} in docker'"
+
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1-vm-docker
+        steps:
+            - run: echo "run ${{github.job}}"
+        
+    job3:
+        runs-on: ubuntu-latest
+        needs: job1-vm-docker
+        steps:
+            - run: echo "run ${{github.job}}"
+    job4:
+        runs-on: ubuntu-latest
+        needs: [job1-vm-docker, job3]
+        steps:
+            - run: echo "run ${{github.job}}"
+
