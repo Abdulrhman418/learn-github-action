@@ -13,4 +13,4 @@ jobs:
           echo "Actor: ${{ github.actor }}"
           echo "Event name: ${{ github.event_name }}"
           echo "Current job: ${{ github.job }}"
-          cat ${{github.event}}
+          cat $GITHUB_EVENT_PATH
