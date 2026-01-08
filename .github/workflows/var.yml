@@ -13,3 +13,4 @@ jobs:
           echo "Actor: ${{ github.actor }}"
           echo "Event name: ${{ github.event_name }}"
           echo "Current job: ${{ github.job }}"
+          echo "print ${{github.event}}"
