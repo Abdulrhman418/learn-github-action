@@ -32,12 +32,12 @@ jobs:
                 node-version: ${{inputs.node-version}}
 
             - name: download cashe
-              uses: actions/cashe@v3
+              uses: actions/cache@v3
               if: ${{inputs.using-cash}}
               id: cashe
               with:
                 path: react-app/node_modules
-                key: ${{runner.os}}-node-${{hashFiles("react-app/package-lock.json")}}
+                key: ${{runner.os}}-node-${{hashFiles('react-app/package-lock.json')}}
                 restore-keys: |
                     ${{runner.os}}-node-
             
