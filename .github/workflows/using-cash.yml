@@ -48,7 +48,7 @@ jobs:
 
 
             - name: test code
-              run: npm run test
+              run: npm run test -- --coverage
 
             - name: build app
               run: npm run build
@@ -58,6 +58,12 @@ jobs:
               with:
                 name: react-build
                 path: react-app/build
+
+            - name: upload artifact test
+              uses: actions/upload-artifact@v4
+              with:
+                  name: test
+                  path:  react-app/coverage
 
     deploying:
         name: deploying app
