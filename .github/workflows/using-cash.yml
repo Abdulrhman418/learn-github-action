@@ -23,9 +23,15 @@ jobs:
           run:
             working-directory: react-app/
         steps:
+            - name: print pwd
+              run: pwd
+
             - name: checkout
               uses: actions/checkout@v4
             
+            - name: print pwd after
+              run: pwd
+
             - name: setup nodejs
               uses: actions/setup-node@v3
               with:
