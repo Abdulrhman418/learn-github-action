@@ -42,7 +42,9 @@ jobs:
                     ${{runner.os}}-node-
             
             - name: install depa
+              if: steps.cashe.outputs.cache-hit != 'true'
               run: npm install
+
 
             - name: test code
               run: npm run test
