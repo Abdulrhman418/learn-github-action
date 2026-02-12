@@ -42,7 +42,7 @@ jobs:
                     ${{runner.os}}-node-
             
             - name: install depa
-              run: npm ci
+              run: npm install
 
             - name: test code
               run: npm run test
