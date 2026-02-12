@@ -70,7 +70,9 @@ jobs:
                 path: react-app/build
 
             - name: show fils
-              run: ls -R
+              run: |
+                  tree 
+                  ls -R
             
             - name: deplay app
               run: echo "deplaying app"
