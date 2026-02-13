@@ -16,7 +16,7 @@ jobs:
               - ubuntu-latest
               - windows-latest
             exclude:
-              - os: ubuntu:latest
+              - os: ubuntu-latest
                 node-version: 18.x
               - os: windows-latest
                 node-version: 18.x
