@@ -1,2 +1,3 @@
 **/node_modules/**
 **/venv/**
+./.github/my-js-action/workflow1/node_modules/*
