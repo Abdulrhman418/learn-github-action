@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Ping URL
-        uses: ./.github/my-docker-action/docker-ping-url
+        uses: ./.github/actions/my-docker-action/docker-ping-url
         with:
           url: ${{ github.event.inputs.url }}
           max_trials: ${{ github.event.inputs.max_trials }}

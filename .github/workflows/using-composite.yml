@@ -1,0 +1,33 @@
+name: using composite actions
+
+on:
+    workflow_dispatch:
+      inputs:
+        using-cash:
+            description: "use cashe for node"
+            type: boolean
+            default: true
+        node-version:
+            description: node version
+            type: choice
+            options:
+              - 18.x
+              - 20.x
+              - 21.x
+            default: 20.x
+jobs:
+    test:
+        name: test
+        runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: react-app/
+        steps:
+            - name: setup node
+              uses: ./.github/actions/composite/setupNode
+              with:
+                using-cache: ${{inputs.using-cash}}
+                node-version: ${{inputs.node-version}} 
+            
+            - name: test
+              run: npm run test

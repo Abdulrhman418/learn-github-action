@@ -1,0 +1,42 @@
+name: "Use Node Cache"
+description: "Composite action to setup node and cache dependencies"
+
+inputs:
+  using-cache:
+    description: "Use cache for node modules"
+    required: false
+    default: "true"
+
+  node-version:
+    description: "Node version"
+    required: false
+    default: "20.x"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup NodeJS
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Download Cache
+      uses: actions/cache@v3
+      if: ${{ inputs.using-cache == 'true' }}
+      id: cache
+      with:
+        path: react-app/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('react-app/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        cd react-app
+        npm install
+      shell: bash
+
