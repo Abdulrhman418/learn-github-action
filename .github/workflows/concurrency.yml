@@ -3,6 +3,14 @@ name: test concurrency
 on:
     workflow_dispatch:
       
+# can be in workflow level or job level
+#concurrency:
+#    group: ${{ github.workflow }}-${{ github.ref }} 
+#    cancel-in-progress: false  # flase means that the new workflow will not cancel the in-progress workflow, and both will run concurrently.
+                                # true means that the new workflow will cancel the in-progress workflow, and only the new one will run.
+                                # quwuing in github action for only two workflow one is in progress and the other is waiting for the in-progress workflow to complete before it starts. so if any workflow between then is cancelled
+
+
 jobs:
     test-with-concurrency:
         runs-on: ubuntu-latest
