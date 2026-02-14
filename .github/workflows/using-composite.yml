@@ -23,12 +23,7 @@ jobs:
           run:
             working-directory: react-app/
         steps:
-            - name: checkout
-              uses: actions/checkout@v4
 
-            - name: test pwd
-              run: |
-                pwd
             - name: setup node
               uses: ./.github/actions/composite/setupNode
               with:
