@@ -3,12 +3,16 @@ name: test concurrency
 on:
     workflow_dispatch:
       
-concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: false
-
 jobs:
-    test:
+    test-with-concurrency:
+        runs-on: ubuntu-latest
+        concurrency:
+            group: ${{ github.workflow }}-${{ github.ref }}
+            cancel-in-progress: false
+        steps:
+            - name: sleep 20 seconds
+              run: sleep 20
+    test-without-concurrency:
         runs-on: ubuntu-latest
         steps:
             - name: sleep 20 seconds
