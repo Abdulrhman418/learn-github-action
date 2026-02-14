@@ -5,7 +5,7 @@ on:
       
 concurrency:
     group: test concurrency
-    cancel-in-progress: true
+    cancel-in-progress: flase
 
 jobs:
     test:
