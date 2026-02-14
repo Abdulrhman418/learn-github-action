@@ -11,5 +11,5 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - name: sleep 60 seconds
-              run: sleep 60
+            - name: sleep 30 seconds
+              run: sleep 30
