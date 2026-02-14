@@ -1,0 +1,15 @@
+name: test concurrency
+
+on:
+    workflow_dispatch:
+      
+concurrency:
+    group: test concurrency
+    cancel-in-progress: true
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: sleep 60 seconds
+              run: sleep 60
