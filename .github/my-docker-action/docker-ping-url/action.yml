@@ -1,5 +1,5 @@
 name: "Ping URL"
-description: "Ping URL until maximum trials have exceeded. If result is not 200 until then, fails the action."
+description: "Ping a URL until maximum trials have exceeded. If result is not 200 until then, fails the action."
 
 inputs:
   url:

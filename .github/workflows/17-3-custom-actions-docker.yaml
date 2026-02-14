@@ -1,21 +1,31 @@
 name: "17 - 3 - Custom Actions - Docker"
 
 on:
-    workflow_dispatch:
-        inputs:
-            url:
-                description: "URL to ping"
-                required: true
-                default: "https://www.google.com"
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to ping"
+        required: true
+        default: "https://www.google.com"
+      max_trials:
+        description: "Maximum trials"
+        required: false
+        default: '5'
+      delay:
+        description: "Delay in seconds between trials"
+        required: false
+        default: '3'
 
 jobs:
-    ping-url:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  ping-url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Ping URL
-              uses: ./.github/my-docker-action/docker-ping-url
-              with:
-                  url: ${{ github.event.inputs.url }}
+      - name: Ping URL
+        uses: ./.github/my-docker-action/docker-ping-url
+        with:
+          url: ${{ github.event.inputs.url }}
+          max_trials: ${{ github.event.inputs.max_trials }}
+          delay: ${{ github.event.inputs.delay }}
