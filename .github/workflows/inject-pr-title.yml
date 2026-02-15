@@ -4,7 +4,7 @@ on :
     pull_request:
 
 jobs:
-    test:
+    not-save-test:
         runs-on: ubuntu-latest
         steps:
             - name: checkout 
@@ -16,6 +16,24 @@ jobs:
                   if [[ $title =~ ^feat ]]; then
                     echo "This is a feature pull request"
                   elif [[ $title =~ ^fix ]]; then
+                    echo "This is a bug fix pull request"
+                  else
+                    echo "This is a general pull request"
+                  fi
+
+    save-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout 
+              uses: actions/checkout@v4
+            
+            - name: inject pr title
+              env:
+                TITLE=${{github.event.pull_request.title}}
+              run: |
+                  if [[ $TITLE =~ ^feat ]]; then
+                    echo "This is a feature pull request"
+                  elif [[ $TITLE =~ ^fix ]]; then
                     echo "This is a bug fix pull request"
                   else
                     echo "This is a general pull request"
