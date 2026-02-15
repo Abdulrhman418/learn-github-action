@@ -21,6 +21,7 @@ jobs:
                     echo "This is a general pull request"
                   fi
 
+# save using env or custome action to save the pr title in env variable and use it in the next step, but the env variable is only available in the current job, if you want to use it in another job, you need to use the output of the step and pass it to the next job using the needs keyword.
     save-test:
         runs-on: ubuntu-latest
         steps:
